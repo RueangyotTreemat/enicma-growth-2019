@@ -77,7 +77,7 @@ onClick = e => {
 };
 
 //tooltipY
-onClick = e => this.setState({ current: e.target.attributes.name.value });
+onMouseOver = e => this.setState({ current: e.target.attributes.name.value });
 
 onMouseMove = e =>
   this.setState({
