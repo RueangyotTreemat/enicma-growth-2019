@@ -91,7 +91,7 @@ onMouseOut = () => this.setState({ current: null, isTooltipVisible: false });
 
 render() {
   const { map } = this.props;
-  //const { hovered, focused, clicked } = this.state;
+  const { hovered, focused, clicked } = this.state;
   const { current, isTooltipVisible, tooltipX, tooltipY } = this.state;
 
   const layerProps = {
@@ -110,6 +110,7 @@ render() {
     top: tooltipY,
     left: tooltipX,
   };
+
   
   return (
 
