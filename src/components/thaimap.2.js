@@ -25,14 +25,6 @@ const StyledMap = styled(MapWrapper)`
     }
   }
 `;
-
-const Tooltip = styled.div`
-  position: absolute;
-  padding: 0.25rem;
-  background: white;
-  border: 0.2rem solid #ccc;
-`;
-
 let validImageName = 'Khon Kaen';
 let invalidImageName = 'NoData';
  class MyMap extends Component{
@@ -43,13 +35,8 @@ let invalidImageName = 'NoData';
       hovered: null,
       focused: null,
       clicked: null,
-      current: null,
-      isTooltipVisible: false,
-      tooltipY: 0,
-      tooltipX: 0,
     };
   }
-
 /** When the mouse enters a layer. */
 onMouseEnter = e => this.setState({ hovered: e.target.attributes.name.value });
 
@@ -76,23 +63,9 @@ onClick = e => {
   }
 };
 
-//tooltipY
-onMouseOver = e => this.setState({ current: e.target.attributes.name.value });
-
-onMouseMove = e =>
-  this.setState({
-    isTooltipVisible: true,
-    tooltipY: e.clientY + 10,
-    tooltipX: e.clientX + 10,
-  });
-
-onMouseOut = () => this.setState({ current: null, isTooltipVisible: false });
-
-
 render() {
   const { map } = this.props;
-  //const { hovered, focused, clicked } = this.state;
-  const { current, isTooltipVisible, tooltipX, tooltipY } = this.state;
+  const { hovered, focused, clicked } = this.state;
 
   const layerProps = {
     onMouseEnter: this.onMouseEnter,
@@ -100,17 +73,7 @@ render() {
     onFocus: this.onFocus,
     onBlur: this.onBlur,
     onClick: this.onClick,
-    onMouseOver: this.onMouseOver,
-    onMouseMove: this.onMouseMove,
-    onMouseOut: this.onMouseOut,
   };
-
-  const tooltipStyle = {
-    display: isTooltipVisible ? 'block' : 'none',
-    top: tooltipY,
-    left: tooltipX,
-  };
-  
   return (
 
       <div className="contact-body">
@@ -120,7 +83,6 @@ render() {
                 <Wrapper >
                   <StyledMap >
                     <VectorMap {...thailand} layerProps={layerProps} style={{width:'258.39',height:'auto'}}/>
-                    <Tooltip style={tooltipStyle} >{current}</Tooltip>
                   </StyledMap>
                 </Wrapper>
              

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 const BORDER_STYLE = `0.2rem solid ${rgba('#000', 0.15)}`;
-const STROKE_COLOR = '#9CC1D9';
+const STROKE_COLOR = '#733917';
 
 export const Wrapper = styled.div`
   display: flex;
