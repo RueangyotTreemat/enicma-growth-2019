@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@south-paw/react-vector-maps": "^2.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-favicon": "^2.0.1",
     "path": "^0.12.7",
     "polished": "^3.4.0",
